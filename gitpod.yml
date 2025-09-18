@@ -1,0 +1,14 @@
+image: gitpod/workspace-full-vnc
+ports:
+  - port: 6080
+    onOpen: open-preview
+tasks:
+  - name: Setup Audiveris
+    command: |
+      set -e
+      # Fetch latest Audiveris binary release
+      wget -O /workspace/audiveris.zip https://github.com/Audiveris/audiveris/releases/latest/download/audiveris-bin.zip
+      mkdir -p /workspace/audiveris && unzip -q /workspace/audiveris.zip -d /workspace/audiveris
+      echo "✅ Audiveris ready in /workspace/audiveris"
+      echo "👉 To start Audiveris GUI, run:"
+      echo "bash /workspace/audiveris/bin/audiveris.sh"
